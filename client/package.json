@@ -1,0 +1,27 @@
+{
+  "name": "form-component",
+  "version": "1.0.0",
+  "description": "form submission component",
+  "author": "Brandon Patterson",
+  "main": "public/index.php",
+  "scripts": {
+    "deploy": "git push heroku master",
+    "start": "gulp clean && gulp"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-latest": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-eslint": "^4.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "node-sass": "^4.5.2",
+    "webpack": "^2.5.1",
+    "webpack-stream": "^3.2.0"
+  }
+}
