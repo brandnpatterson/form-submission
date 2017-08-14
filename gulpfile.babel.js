@@ -1,9 +1,10 @@
 import gulp       from 'gulp';
 import del        from 'del';
-import sync       from 'browser-sync';
+import nodemon    from 'gulp-nodemon';
 import prefix     from 'gulp-autoprefixer';
 import sass       from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
+import sync       from 'browser-sync';
 import webpack    from 'webpack-stream';
 
 var options = {};
@@ -18,13 +19,25 @@ gulp.task('build', ['scripts', 'styles']);
 gulp.task('clean', del.bind(null, ['public/css/style.css', 'public/js/*.js'], {read: false}));
 
 // server
-gulp.task('serve', () => {
-  sync({
+gulp.task('nodemon', (cb) => {
+	var started = false;
+	return nodemon({
+		script: 'app.js',
+	}).on('start', () => {
+		if (!started) {
+			cb();
+			started = true;
+		}
+	});
+});
+
+gulp.task('serve', ['nodemon'], () => {
+  sync.init(null, {
+    proxy: 'http://localhost:8887',
     notify: false,
-    server: {
-      baseDir: './'
-    },
-    port: 8888
+    files: 'public/**/*.*',
+    port: 8888,
+    ext: '.pug'
   });
 });
 
