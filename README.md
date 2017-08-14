@@ -1,2 +1,1 @@
-# form submission component
- 
+# form component
