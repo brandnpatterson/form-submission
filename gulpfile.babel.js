@@ -10,7 +10,7 @@ var options = {};
 var reload = sync.reload;
 
 // default
-gulp.task('default', ['browser-sync', 'build', 'watch']);
+gulp.task('default', ['serve', 'build', 'watch']);
 
 gulp.task('build', ['scripts', 'styles']);
 
@@ -18,10 +18,13 @@ gulp.task('build', ['scripts', 'styles']);
 gulp.task('clean', del.bind(null, ['public/css/style.css', 'public/js/*.js'], {read: false}));
 
 // server
-gulp.task('browser-sync', () => {
-  sync.init(['public/index.html', 'src/**/*'], {
-    proxy: 'localhost:8888/form-backend/client',
-    notify: false
+gulp.task('serve', () => {
+  sync({
+    notify: false,
+    server: {
+      baseDir: './'
+    },
+    port: 8888
   });
 });
 
