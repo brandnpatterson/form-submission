@@ -17,7 +17,7 @@ const handleGET = {
   handleCall () {
     const request = new XMLHttpRequest();
     const method = 'GET';
-    const url = 'https://form-component.herokuapp.com/api/v1/submissions';
+    const url = 'https://form-component-api.herokuapp.com/api/v1/submissions';
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
@@ -74,7 +74,7 @@ const handlePOST = {
 
     const request = new XMLHttpRequest();
     const method = 'POST';
-    const url = 'https://form-component.herokuapp.com/api/v1/submissions';
+    const url = 'https://form-component-api.herokuapp.com/api/v1/submissions';
 
     request.open(method, url, true);
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
