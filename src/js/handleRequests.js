@@ -23,7 +23,7 @@ const handleGET = {
   handleCall () {
     const request = new XMLHttpRequest();
     const method = 'GET';
-    const url = devURL;
+    const url = prodURL;
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
@@ -81,7 +81,7 @@ const handlePOST = {
 
       const request = new XMLHttpRequest();
       const method = 'POST';
-      const url = devURL;
+      const url = prodURL;
 
       request.open(method, url, true);
       request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
