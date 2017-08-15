@@ -5,7 +5,7 @@
 import validation from './handlers/validation';
 
 const devURL = 'http://localhost:3000/api/v1/submissions';
-const prodURL = 'http://form-component-api/api/v1/submissions';
+const prodURL = 'https://form-component-api.herokuapp.com/api/v1/submissions';
 
 const handleGET = {
   init () {
