@@ -12,7 +12,6 @@ var validation = module.exports = {
       var errorMessage = after.nextSibling;
 
       if (input.value === '' || validation.errors === true) {
-        console.log('errors exist in form');
         event.preventDefault();
         return;
       } else if (input.value.match(formData.data[index].regex)) {

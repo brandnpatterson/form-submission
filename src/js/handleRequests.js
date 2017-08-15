@@ -33,10 +33,8 @@ const handleGET = {
   handleRender (data) {
     const catData = this.catData;
     const dogData = this.dogData;
-    console.log(validation.errors);
-    if (validation.errors === true) {
-      event.preventDefault();
-    } else if (validation.errors === false && data) {
+
+    if (data) {
       data.map(d => {
         const catItem = document.createElement('li');
         const dogItem = document.createElement('li');
