@@ -36,7 +36,5 @@ var validation = module.exports = {
     }
 
     required.every(testData) ? validation.errors === false : validation.errors === true;
-
-    console.log(validation.errors);
   }
 }
