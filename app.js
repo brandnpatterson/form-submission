@@ -14,5 +14,5 @@ app.post('/', (req,res) => {
 });
 
 app.listen(process.env.PORT || port, () => {
-  console.log(`Express is listening at http://localhost:${port}, also ${url}`);
+  console.log(`Express is listening at http://localhost:${port}`);
 });
