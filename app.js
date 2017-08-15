@@ -1,12 +1,7 @@
 const express = require('express');
-const port = process.env.PORT || 8887;
-var bodyParser = require('body-parser');
+const port = 8887;
 
 const app = express();
-
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
 
 app.use(express.static('public'));
 
@@ -19,5 +14,5 @@ app.post('/', (req,res) => {
 });
 
 app.listen(process.env.PORT || port, () => {
-  console.log(`Express is listening at http://localhost:${port}`);
+  console.log(`Express is listening at http://localhost:${port}, also ${url}`);
 });

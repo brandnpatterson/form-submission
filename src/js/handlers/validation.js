@@ -30,15 +30,13 @@ var validation = module.exports = {
         event.preventDefault();
       }
     }, this);
+
     const testData = (input) => {
       return input.dataset.error === 'false';
     }
 
-    if (required.every(testData)) {
-      validation.errors = false;
-    } else {
-      validation.errors = true;
-    }
+    required.every(testData) ? validation.errors === false : validation.errors === true;
+
     console.log(validation.errors);
   }
 }

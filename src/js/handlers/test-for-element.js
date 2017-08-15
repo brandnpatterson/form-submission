@@ -3,7 +3,7 @@
 */
 
 var test = module.exports = {
-  testForElement: function (el, eventType, method) {
+  testForElement (el, eventType, method) {
     if (el) {
       el.addEventListener(eventType, method);
     }
