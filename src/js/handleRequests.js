@@ -1,6 +1,9 @@
 /*
   Request data from API
 */
+
+import validation from './handlers/validation';
+
 const handleGET = {
   init () {
     this.cacheDOM();
@@ -17,7 +20,7 @@ const handleGET = {
   handleCall () {
     const request = new XMLHttpRequest();
     const method = 'GET';
-    const url = 'https://form-component-api.herokuapp.com/api/v1/submissions';
+    const url = 'http://form-component-api.herokuapp.com/api/v1/submissions';
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
@@ -30,8 +33,10 @@ const handleGET = {
   handleRender (data) {
     const catData = this.catData;
     const dogData = this.dogData;
-
-    if (data) {
+    console.log(validation.errors);
+    if (validation.errors === true) {
+      event.preventDefault();
+    } else if (validation.errors === false && data) {
       data.map(d => {
         const catItem = document.createElement('li');
         const dogItem = document.createElement('li');
@@ -66,19 +71,21 @@ const handlePOST = {
     this.yesDog = document.getElementById('yes-dog');
   },
   bindEvents () {
-    this.postData.addEventListener('click', this.handlePOST.bind(this));
+    this.postData.addEventListener('click', this.handleSend.bind(this));
   },
-  handlePOST () {
+  handleSend () {
     this.handleData();
     const data = this.data;
 
     const request = new XMLHttpRequest();
     const method = 'POST';
-    const url = 'https://form-component-api.herokuapp.com/api/v1/submissions';
+    const url = 'http://form-component-api.herokuapp.com/api/v1/submissions';
 
     request.open(method, url, true);
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-    request.send(JSON.stringify(data));
+    if (validation.errors === false) {
+      request.send(JSON.stringify(data));
+    }
   },
   handleData () {
     this.data = {
