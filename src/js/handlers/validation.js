@@ -11,14 +11,13 @@ var validation = module.exports = {
       var after = input.nextSibling;
       var errorMessage = after.nextSibling;
 
-      if (input.value === '' || validation.errors === true) {
-        event.preventDefault();
-        return;
-      } else if (input.value.match(formData.data[index].regex)) {
+      if (input.value.match(formData.data[index].regex)) {
         errorMessage.textContent = '✅';
         errorMessage.classList.remove('input-fail');
         errorMessage.classList.add('input-success');
         validation.errors = false;
+      } else if (input.value === '' || validation.errors === true) {
+        event.preventDefault();
       } else {
         errorMessage.textContent = formData.data[index].error;
         errorMessage.classList.remove('input-success');
