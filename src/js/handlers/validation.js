@@ -2,10 +2,11 @@
   formData used to match user input for validation
 */
 
+
 import formData from '../data/form-data';
 
 var validation = module.exports = {
-  errors: false,
+  errors: null,
   validate (required) {
     required.map ((input, index) => {
       var after = input.nextSibling;
@@ -15,17 +16,29 @@ var validation = module.exports = {
         errorMessage.textContent = '✅';
         errorMessage.classList.remove('input-fail');
         errorMessage.classList.add('input-success');
-        validation.errors = false;
-        console.log(validation.errors);
-      } else if (input.value === '' || validation.errors === true) {
+        input.dataset.error = 'false';
+      } else if (input.value === '') {
         event.preventDefault();
       } else {
         errorMessage.textContent = formData.data[index].error;
         errorMessage.classList.remove('input-success');
         errorMessage.classList.add('input-fail');
-        validation.errors = true;
-        console.log(validation.errors);
+        input.dataset.error = 'true';
+      }
+
+      if (validation.errors != false) {
+        event.preventDefault();
       }
     }, this);
+    const testData = (input) => {
+      return input.dataset.error === 'false';
+    }
+
+    if (required.every(testData)) {
+      validation.errors = false;
+    } else {
+      validation.errors = true;
+    }
+    console.log(validation.errors);
   }
 }

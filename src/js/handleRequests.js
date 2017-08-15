@@ -4,6 +4,8 @@
 
 import validation from './handlers/validation';
 
+console.log(validation.errors);
+
 const handleGET = {
   init () {
     this.cacheDOM();
@@ -20,7 +22,7 @@ const handleGET = {
   handleCall () {
     const request = new XMLHttpRequest();
     const method = 'GET';
-    const url = 'http://form-component-api/api/v1/submissions';
+    const url = 'http://localhost:3000/api/v1/submissions';
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
@@ -78,7 +80,7 @@ const handlePOST = {
 
       const request = new XMLHttpRequest();
       const method = 'POST';
-      const url = 'http://form-component-api/api/v1/submissions';
+      const url = 'http://localhost:3000/api/v1/submissions';
 
       request.open(method, url, true);
       request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');

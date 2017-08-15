@@ -20,16 +20,27 @@ gulp.task('clean', del.bind(null, ['public/css/style.css', 'public/js/*.js'], {r
 
 // server
 gulp.task('nodemon', (cb) => {
-	var started = false;
-	return nodemon({
-		script: 'app.js',
-	}).on('start', () => {
-		if (!started) {
-			cb();
-			started = true;
-		}
-	});
+  var called = false;
+  return nodemon({
+    script: 'app.js',
+    ignore: [
+      'gulpfile.babel.js',
+      'node_modules/'
+    ]
+  })
+  .on('start', () => {
+    if (!called) {
+      called = true;
+      cb();
+    }
+  })
+  .on('restart', () => {
+    setTimeout(() => {
+      reload({ stream: false });
+    }, 1000);
+  });
 });
+
 
 gulp.task('serve', ['nodemon'], () => {
   sync.init(null, {
