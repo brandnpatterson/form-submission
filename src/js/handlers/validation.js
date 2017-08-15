@@ -35,6 +35,6 @@ var validation = module.exports = {
       return input.dataset.error === 'false';
     }
 
-    required.every(testData) ? validation.errors === false : validation.errors === true;
+    required.every(testData) ? validation.errors = false : validation.errors = true;
   }
 }

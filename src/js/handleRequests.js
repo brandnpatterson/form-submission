@@ -7,6 +7,8 @@ import validation from './handlers/validation';
 const devURL = 'http://localhost:3000/api/v1/submissions';
 const prodURL = 'https://form-component-api.herokuapp.com/api/v1/submissions';
 
+const currentURL = prodURL;
+
 const handleGET = {
   init () {
     this.cacheDOM();
@@ -23,7 +25,7 @@ const handleGET = {
   handleCall () {
     const request = new XMLHttpRequest();
     const method = 'GET';
-    const url = prodURL;
+    const url = currentURL;
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
@@ -34,6 +36,8 @@ const handleGET = {
     request.send();
   },
   handleRender (data) {
+    console.log(validation.errors);
+
     const catData = this.catData;
     const dogData = this.dogData;
 
@@ -75,13 +79,14 @@ const handlePOST = {
     this.postData.addEventListener('click', this.handleSend.bind(this));
   },
   handleSend () {
+    console.log(validation.errors);
     if (validation.errors === false) {
       this.handleData();
       const data = this.data;
 
       const request = new XMLHttpRequest();
       const method = 'POST';
-      const url = prodURL;
+      const url = currentURL;
 
       request.open(method, url, true);
       request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
