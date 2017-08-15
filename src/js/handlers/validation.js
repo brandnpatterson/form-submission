@@ -16,6 +16,7 @@ var validation = module.exports = {
         errorMessage.classList.remove('input-fail');
         errorMessage.classList.add('input-success');
         validation.errors = false;
+        console.log(validation.errors);
       } else if (input.value === '' || validation.errors === true) {
         event.preventDefault();
       } else {
@@ -23,6 +24,7 @@ var validation = module.exports = {
         errorMessage.classList.remove('input-success');
         errorMessage.classList.add('input-fail');
         validation.errors = true;
+        console.log(validation.errors);
       }
     }, this);
   }
