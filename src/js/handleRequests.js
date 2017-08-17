@@ -10,9 +10,11 @@ const prodURL = 'https://form-component-api.herokuapp.com/api/v1/submissions';
 const currentURL = prodURL;
 
 const handleGET = {
+  data: [],
   init () {
     this.cacheDOM();
     this.bindEvents();
+    this.handleCall();
   },
   cacheDOM () {
     this.getData = document.querySelector('.get-data');
@@ -20,7 +22,7 @@ const handleGET = {
     this.dogData = document.getElementById('dog-data');
   },
   bindEvents () {
-    this.getData.addEventListener('click', this.handleCall.bind(this));
+    this.getData.addEventListener('click', this.handleRender.bind(this));
   },
   handleCall () {
     const request = new XMLHttpRequest();
@@ -29,19 +31,19 @@ const handleGET = {
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
-        handleGET.handleRender(obj);
+        handleGET.data = obj;
+        console.log(handleGET.data);
       }
     }
     request.open(method, url, true);
     request.send();
   },
-  handleRender (data) {
-    console.log(validation.errors);
-
+  handleRender () {
+    const data = this.data;
     const catData = this.catData;
     const dogData = this.dogData;
 
-    if (data) {
+    if (data.length > 0) {
       data.map(d => {
         const catItem = document.createElement('li');
         const dogItem = document.createElement('li');
