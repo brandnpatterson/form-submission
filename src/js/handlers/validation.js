@@ -26,7 +26,6 @@ var validation = module.exports = {
         input.dataset.error = 'true';
       }
 
-      console.log(validation.errors);
       if (validation.errors != false) {
         event.preventDefault();
       }
