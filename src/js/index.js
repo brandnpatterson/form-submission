@@ -3,4 +3,5 @@
 */
 
 import './formComponent';
-import './handlers/requests';
+import './handlers/requestGET';
+import './handlers/requestPOST';

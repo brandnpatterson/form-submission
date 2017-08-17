@@ -5,7 +5,7 @@
 
 import formData from '../data/form-data';
 
-var validation = module.exports = {
+const validation = module.exports = {
   errors: null,
   validate (required) {
     required.map ((input, index) => {

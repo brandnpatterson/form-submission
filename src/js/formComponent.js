@@ -3,8 +3,10 @@
 */
 
 import { init, toggle } from './handlers/placeholders';
-import { testForElement } from './handlers/test-for-element';
+import { testForElement } from './handlers/testForElement';
 import { validate } from './handlers/validation';
+import handleGET from './handlers/requestGET';
+import handlePOST from './handlers/requestPOST';
 
 const formComponent = {
   init () {
@@ -14,6 +16,8 @@ const formComponent = {
   },
   cacheDOM () {
     this.form = document.querySelector('.form');
+    this.getData = document.querySelector('.get-data');
+    this.postData = document.querySelector('.post-data');
     const name = document.querySelector('#name');
     const email = document.querySelector('#email');
     const phone = document.querySelector('#phone');
@@ -24,8 +28,16 @@ const formComponent = {
   },
   bindEvents () {
     // testForElement found in handlers folder
-    testForElement(this.form, 'click', this.liveValidation.bind(this));
-    testForElement(this.form, 'click', this.placeholdersToggle.bind(this));
+    testForElement(this.postData, 'click', this.sendData.bind(this));
+    testForElement(this.getData, 'click', this.handleRender.bind(this));
+    testForElement(this.form, 'mouseover', this.liveValidation.bind(this));
+    testForElement(this.form, 'mouseover', this.placeholdersToggle.bind(this));
+  },
+  handleRender () {
+    handleGET.render();
+  },
+  sendData () {
+    handlePOST.send();
   },
   liveValidation (e) {
     if (e.target.type === 'radio') {

@@ -4,7 +4,7 @@
 
 import formData from '../data/form-data';
 
-var placeholders = module.exports = {
+const placeholders = module.exports = {
   // set initial input placeholder values
   init (required) {
     required.map((input, index) => {
