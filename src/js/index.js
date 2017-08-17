@@ -3,4 +3,4 @@
 */
 
 import './formComponent';
-import './handleRequests';
+import './handlers/requests';

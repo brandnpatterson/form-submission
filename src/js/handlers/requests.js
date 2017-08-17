@@ -2,7 +2,7 @@
   Request data from API
 */
 
-import validation from './handlers/validation';
+import validation from './validation';
 
 const devURL = 'http://localhost:3000/api/v1/submissions';
 const prodURL = 'https://form-component-api.herokuapp.com/api/v1/submissions';
@@ -32,7 +32,6 @@ const handleGET = {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
         handleGET.data = obj;
-        console.log(handleGET.data);
       }
     }
     request.open(method, url, true);
@@ -64,6 +63,7 @@ const handleGET = {
 handleGET.init();
 
 const handlePOST = {
+  data: {},
   init () {
     this.cacheDOM();
     this.bindEvents();
@@ -81,8 +81,8 @@ const handlePOST = {
     this.postData.addEventListener('click', this.handleSend.bind(this));
   },
   handleSend () {
-    console.log(validation.errors);
     if (validation.errors === false) {
+      console.log(validation.errors);
       this.handleData();
       const data = this.data;
 
@@ -96,6 +96,7 @@ const handlePOST = {
     }
   },
   handleData () {
+    console.log(this.data);
     this.data = {
       name: this.name.value,
       email: this.email.value,
