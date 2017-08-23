@@ -2,7 +2,6 @@
   formData used to match user input for validation
 */
 
-
 import formData from '../data/form-data';
 
 const validation = module.exports = {
