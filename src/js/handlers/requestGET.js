@@ -39,7 +39,7 @@ const handleGET = module.exports = {
     const catData = this.catData;
     const dogData = this.dogData;
 
-    if (data) {
+    if (data.length !== 0) {
       data.map(d => {
         const catItem = document.createElement('li');
         const dogItem = document.createElement('li');
