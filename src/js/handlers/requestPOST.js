@@ -26,6 +26,7 @@ const handlePOST = module.exports = {
     if (validation.errors === false) {
       console.log(validation.errors);
       this.handleData();
+      // use local object to store request data
       const data = this.data;
 
       const request = new XMLHttpRequest();

@@ -16,6 +16,7 @@ const handleGET = module.exports = {
   cacheDOM () {
     this.catData = document.getElementById('cat-data');
     this.dogData = document.getElementById('dog-data');
+    this.getDataButton = document.querySelector('.get-data');
   },
   handleCall () {
     const request = new XMLHttpRequest();
@@ -25,6 +26,7 @@ const handleGET = module.exports = {
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
+        // assign request data to local array
         handleGET.data = obj;
         console.log(obj);
       }
@@ -37,7 +39,7 @@ const handleGET = module.exports = {
     const catData = this.catData;
     const dogData = this.dogData;
 
-    if (data.length > 0) {
+    if (data) {
       data.map(d => {
         const catItem = document.createElement('li');
         const dogItem = document.createElement('li');
@@ -51,7 +53,8 @@ const handleGET = module.exports = {
         catData.appendChild(catItem);
         dogData.appendChild(dogItem);
       });
-      console.log(data);
+
+      this.getDataButton.style.display = 'none';
     }
   }
 }
