@@ -7,7 +7,6 @@ import sourcemaps from 'gulp-sourcemaps';
 import sync       from 'browser-sync';
 import webpack    from 'webpack-stream';
 
-var options = {};
 var reload = sync.reload;
 
 // default
@@ -40,7 +39,6 @@ gulp.task('nodemon', (cb) => {
     }, 1000);
   });
 });
-
 
 gulp.task('serve', ['nodemon'], () => {
   sync.init(null, {

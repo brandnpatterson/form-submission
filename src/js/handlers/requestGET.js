@@ -26,6 +26,7 @@ const handleGET = module.exports = {
       if (this.readyState == 4 && this.status == 200) {
         const obj = JSON.parse(this.responseText);
         handleGET.data = obj;
+        console.log(obj);
       }
     }
     request.open(method, url, true);
