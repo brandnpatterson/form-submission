@@ -5,7 +5,8 @@
   "author": "Brandon Patterson",
   "main": "index.html",
   "scripts": {
-    "start": "gulp clean && gulp"
+    "start": "gulp clean && gulp",
+    "deploy": "webpack -p && git push heroku master"
   },
   "license": "MIT",
   "devDependencies": {
