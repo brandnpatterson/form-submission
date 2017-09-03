@@ -7,7 +7,7 @@ import formData from '../data/form-data';
 const validation = module.exports = {
   errors: null,
   validate (required) {
-    required.map ((input, index) => {
+    required.forEach ((input, index) => {
       var after = input.nextSibling;
       var errorMessage = after.nextSibling;
 

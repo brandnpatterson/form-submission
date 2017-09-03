@@ -40,7 +40,7 @@ const handleGET = module.exports = {
     const dogData = this.dogData;
 
     if (data.length !== 0) {
-      data.map(d => {
+      data.forEach(d => {
         const catItem = document.createElement('li');
         const dogItem = document.createElement('li');
 

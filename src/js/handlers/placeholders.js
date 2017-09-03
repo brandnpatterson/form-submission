@@ -7,14 +7,14 @@ import formData from '../data/form-data';
 const placeholders = module.exports = {
   // set initial input placeholder values
   init (required) {
-    required.map((input, index) => {
+    required.forEach((input, index) => {
       if (input) {
         input.placeholder = formData.data[index].placeholder;
       }
     }, this);
   },
   toggle (required) {
-    required.map((input, index) => {
+    required.forEach((input, index) => {
       if (event.target != input) {
         input.placeholder = formData.data[index].placeholder;
       } else {
