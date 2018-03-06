@@ -1,26 +1,24 @@
-/*
-  Set initial placeholders for inputs
-*/
-
 import formData from '../data/form-data';
 
-const placeholders = module.exports = {
+const placeholders = {
   // set initial input placeholder values
-  init (required) {
-    required.forEach((input, index) => {
+  init(requiredInputs) {
+    requiredInputs.map((input, index) => {
       if (input) {
-        input.placeholder = formData.data[index].placeholder;
+        input.placeholder = formData[index].placeholder;
       }
     }, this);
   },
-  toggle (required) {
-    required.forEach((input, index) => {
+  toggle(requiredInputs) {
+    requiredInputs.map((input, index) => {
       if (event.target != input) {
-        input.placeholder = formData.data[index].placeholder;
+        input.placeholder = formData[index].placeholder;
       } else {
         // toggle input placeholder value to blank only when user selects input
         input.placeholder = '';
       }
     }, this);
   }
-}
+};
+
+export default placeholders;

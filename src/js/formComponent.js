@@ -2,9 +2,10 @@
   form component
 */
 
-import { init, toggle } from './handlers/placeholders';
-import { testForElement } from './handlers/testForElement';
-import { validate } from './handlers/validation';
+import placeholders from './handlers/placeholders';
+
+import testForElement from './handlers/testForElement';
+import validation from './handlers/validation';
 import handleGET from './handlers/requestGET';
 import handlePOST from './handlers/requestPOST';
 
@@ -12,7 +13,7 @@ const formComponent = {
   init () {
     this.cacheDOM();
     this.bindEvents();
-    init(this.required);
+    placeholders.init(this.required);
   },
   cacheDOM () {
     this.form = document.querySelector('.form');
@@ -43,11 +44,11 @@ const formComponent = {
     if (e.target.type === 'radio') {
       return;
     } else {
-      validate(this.required);
+      validation.validate(this.required);
     }
   },
   placeholdersToggle (e) {
-    toggle(this.required);
+    placeholders.toggle(this.required);
   }
 }
 formComponent.init();

@@ -3,33 +3,28 @@
   "version": "2.0.0",
   "description": "form component",
   "author": "Brandon Patterson",
-  "main": "index.html",
+  "main": "public/index.html",
   "scripts": {
     "start": "gulp clean && gulp",
     "deploy": "webpack -p && git push heroku master"
   },
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-latest": "^6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "browser-sync": "^2.18.8",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-eslint": "^4.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "node-sass": "^4.5.2",
-    "webpack": "^2.5.1",
-    "webpack-stream": "^3.2.0"
+    "webpack": "^3.8.1",
+    "webpack-stream": "^4.0.0"
   },
   "dependencies": {
     "express": "^4.15.4",
     "gulp-nodemon": "^2.2.1"
-  },
-  "engines": {
-    "node": "7.10.0",
-    "npm": "4.2.0"
   }
 }

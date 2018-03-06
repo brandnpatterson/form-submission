@@ -4,14 +4,14 @@
 
 import formData from '../data/form-data';
 
-const validation = module.exports = {
+const validation = {
   errors: null,
   validate (required) {
     required.forEach ((input, index) => {
       var after = input.nextSibling;
       var errorMessage = after.nextSibling;
 
-      if (input.value.match(formData.data[index].regex)) {
+      if (input.value.match(formData[index].regex)) {
         errorMessage.textContent = '✅';
         errorMessage.classList.remove('input-fail');
         errorMessage.classList.add('input-success');
@@ -19,7 +19,7 @@ const validation = module.exports = {
       } else if (input.value === '') {
         event.preventDefault();
       } else {
-        errorMessage.textContent = formData.data[index].error;
+        errorMessage.textContent = formData[index].error;
         errorMessage.classList.remove('input-success');
         errorMessage.classList.add('input-fail');
         input.dataset.error = 'true';
@@ -36,4 +36,6 @@ const validation = module.exports = {
 
     required.every(testData) ? validation.errors = false : validation.errors = true;
   }
-}
+};
+
+export default validation;

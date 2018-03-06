@@ -1,5 +1,5 @@
 {
-  "presets": [
-    ["latest", { "modules": false }]
-  ]
+    "presets": [
+        "env"
+    ]
 }

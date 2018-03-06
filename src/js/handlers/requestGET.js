@@ -7,7 +7,7 @@ const prodURL = 'https://form-component-api.herokuapp.com/api/v1/submissions';
 
 const currentURL = prodURL;
 
-const handleGET = module.exports = {
+const handleGET = {
   data: [],
   init () {
     this.cacheDOM();
@@ -57,5 +57,5 @@ const handleGET = module.exports = {
       this.getDataButton.style.display = 'none';
     }
   }
-}
+};
 handleGET.init();

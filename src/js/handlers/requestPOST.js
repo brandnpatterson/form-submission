@@ -9,7 +9,7 @@ const prodURL = 'https://form-component-api.herokuapp.com/api/v1/submissions';
 
 const currentURL = prodURL;
 
-const handlePOST = module.exports = {
+const handlePOST = {
   data: {},
   init () {
     this.cacheDOM();
