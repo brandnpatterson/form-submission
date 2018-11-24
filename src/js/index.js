@@ -1,7 +1,2 @@
-/*
-  Webpack entry point
-*/
-
-import './formComponent';
-import './handlers/requestGET';
-import './handlers/requestPOST';
+import './copyright';
+import './app';
