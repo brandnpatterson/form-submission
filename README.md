@@ -19,7 +19,3 @@ Frontend Form that requests data from Form Component API
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-- **Billie Thompson** - _README template_ - [PurpleBooth](https://github.com/PurpleBooth)
