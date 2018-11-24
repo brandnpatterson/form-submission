@@ -72,7 +72,11 @@ gulp.task('styles-prod', ['stylelint'], () => {
 });
 
 gulp.task('default', ['scripts', 'styles'], () => {
-  browserSync.init({ server: { baseDir: './' } });
+  browserSync.init({
+    server: {
+      baseDir: './'
+    }
+  });
 
   gulp.watch('./src/js/**/*.js', ['scripts']);
   gulp.watch('./src/sass/**/*.scss', ['styles']);
