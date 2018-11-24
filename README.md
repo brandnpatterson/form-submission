@@ -2,6 +2,10 @@
 
 Frontend Form that requests data from Form Component API
 
+API - [http://form-component-api.herokuapp.com/api/v1/submissions](http://form-component-api.herokuapp.com/api/v1/submissions)
+<br>
+Repo - [https://github.com/brandnpatterson/form-component-api](https://github.com/brandnpatterson/form-component-api)
+
 ## Built With
 
 - [Gulp](https://gulpjs.com/) - Task runner
