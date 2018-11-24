@@ -8,6 +8,10 @@ const styleLint = require('gulp-stylelint');
 const webpack = require('webpack-stream');
 const prodMode = process.env.NODE_ENV === 'production';
 
+gulp.task('set-prod-env', () => {
+  return (process.env.NODE_ENV = 'production');
+});
+
 gulp.task('eslint', () => {
   return gulp
     .src(['./src/js/**/*.js', '!node_modules/**'])
@@ -67,15 +71,7 @@ gulp.task('styles-prod', ['stylelint'], () => {
     .pipe(browserSync.stream());
 });
 
-gulp.task('set-dev-env', () => {
-  return (process.env.NODE_ENV = 'development');
-});
-
-gulp.task('set-prod-env', () => {
-  return (process.env.NODE_ENV = 'production');
-});
-
-gulp.task('default', ['set-dev-env', 'scripts', 'styles'], () => {
+gulp.task('default', ['scripts', 'styles'], () => {
   browserSync.init({ server: { baseDir: './' } });
 
   gulp.watch('./src/js/**/*.js', ['scripts']);
