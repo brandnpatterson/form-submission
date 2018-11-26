@@ -9,67 +9,135 @@
   </head>
   <body>
     <div class="wrapper">
-      <form method="post" autocomplete="off">
-        <h1>Form Component</h1>
-        <div class="formgroup">
-          <label for="name">Name: <span class="required">*</span></label>
-          <input type="text" id="name" name="name" />
-        </div>
-        <div class="formgroup">
-          <label for="email">Email: <span class="required">*</span></label>
-          <input type="text" id="email" name="email" />
-        </div>
-        <div class="formgroup">
-          <label for="phone">Phone: <span class="required">*</span></label>
-          <input type="tel" id="phone" name="phone" />
-        </div>
-        <div class="formgroup">
-          <label for="address">Address: <span class="required">*</span></label>
-          <input type="text" id="address" name="address" />
-        </div>
-        <div class="formgroup">
-          <p>Love 😸? <span class="required">*</span></p>
-          <div class="formgroup">
-            <label for="catYes">Yes</label>
-            <input type="radio" id="catYes" name="cat" />
-            <label for="catNo">No</label>
-            <input type="radio" id="catNo" name="cat" />
+      <form class="container form" method="post" autocomplete="off" name="form">
+        <div class="form-content">
+          <h1>Form Component</h1>
+          <div class="form-group">
+            <label class="form-label" for="name"
+              >Name: <span class="required">*</span></label
+            >
+            <input
+              class="form-input js-validate"
+              type="text"
+              id="name"
+              name="name"
+              data-regex="[a-zA-Z]+(([\',. -][a-zA-Z ])?[a-zA-Z]*)*$"
+              data-error="Please enter letters only"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email"
+              >Email: <span class="required">*</span></label
+            >
+            <input
+              class="form-input js-validate"
+              type="text"
+              id="email"
+              name="email"
+              data-regex="^[a-zA-Z0-9]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+              data-error="Please enter a valid email"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone"
+              >Phone: <span class="required">*</span></label
+            >
+            <input
+              class="form-input js-validate"
+              type="tel"
+              id="phone"
+              name="phone"
+              data-regex="^[2-9]{2}[0-9]{8}$"
+              data-error="Please enter a 10 digit phone number"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="address"
+              >Address: <span class="required">*</span></label
+            >
+            <input
+              class="form-input js-validate"
+              type="text"
+              id="address"
+              name="address"
+              data-regex="^(?!\s*$).+"
+              data-error="Please enter your address"
+            />
+          </div>
+          <div class="form-group">
+            <p>Do you like 😸?<span class="required">*</span></p>
+            <div class="radio-group">
+              <input
+                class="js-validate"
+                type="radio"
+                id="catYes"
+                name="cat"
+                data-error="Please choose an option"
+              />
+              <label class="form-label" for="catYes">Yes</label>
+            </div>
+            <div class="radio-group">
+              <input
+                class="js-validate"
+                type="radio"
+                id="catNo"
+                name="cat"
+                data-error="Please choose an option"
+              />
+              <label class="form-label" for="catNo">No</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <p>Do you like 🐶?<span class="required">*</span></p>
+            <div class="radio-group">
+              <input
+                class="js-validate"
+                type="radio"
+                id="dogYes"
+                name="dog"
+                data-error="Please choose an option"
+              />
+              <label class="form-label" for="dogYes">Yes</label>
+            </div>
+            <div class="radio-group">
+              <input
+                class="js-validate"
+                type="radio"
+                id="dogNo"
+                name="dog"
+                data-error="Please choose an option"
+              />
+              <label class="form-label" for="dogNo">No</label>
+            </div>
           </div>
         </div>
-        <div class="formgroup">
-          <p>Love 🐶? <span class="required">*</span></p>
-          <label for="dogYes">Yes</label>
-          <input type="radio" id="dogYes" name="dog" />
-          <label for="dogNo">No</label>
-          <input type="radio" id="dogNo" name="dog" />
-        </div>
-        <div class="formgroup">
-          <button class="post-data btn btn-green" type="submit" name="submit">
+        <div class="form-group">
+          <button class="button button-primary" type="submit" name="submit">
             Submit
           </button>
         </div>
       </form>
-      <div class="results">
+      <div class="container results">
         <h2>What do others think?</h2>
-        <button class="get-data btn btn-green" type="button">
+        <button class="button button-success" type="button">
           Find Out Now
         </button>
         <div>
-          <h3>"Love 😸?"</h3>
+          <h3>"Do you like 😸?"</h3>
           <ul id="cat-data"></ul>
         </div>
         <div>
-          <h3>"Love 🐶?"</h3>
+          <h3>"Do you like 🐶?"</h3>
           <ul id="dog-data"></ul>
         </div>
       </div>
+      <footer class="container footer">
+        <a href="http://github.com/brandnpatterson" target="_blank">
+          &copy; <span class="date"></span> Brandon Patterson. All Rights
+          Reserved.
+        </a>
+      </footer>
     </div>
-    <footer>
-      <a href="http://github.com/brandnpatterson" target="_blank">
-        &copy; <span class="date"></span> Brandon Patterson. All Rights
-        Reserved.
-      </a>
-    </footer>
     <script type="text/javascript">
       document.querySelector('.date').append(new Date().getFullYear());
     </script>

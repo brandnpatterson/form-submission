@@ -1,2 +1,1 @@
-import './copyright';
 import './app';
