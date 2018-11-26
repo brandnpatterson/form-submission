@@ -6,7 +6,6 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const styleLint = require('gulp-stylelint');
 const webpack = require('webpack-stream');
-const prodMode = process.env.NODE_ENV === 'production';
 
 gulp.task('set-prod-env', () => {
   return (process.env.NODE_ENV = 'production');
