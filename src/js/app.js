@@ -1,7 +1,7 @@
 // const devURL = 'http://localhost:3000/api/v1/submissions';
 // const prodURL = 'https://form-component-api.herokuapp.com/api/v1/submissions';
 
-import validate from './validate';
+import './oregano';
 
 const form = {
   init() {
@@ -15,7 +15,7 @@ const form = {
     this.submitForm();
   },
   submitForm() {
-    validate(this.$form);
+    this.$form.oregano();
   }
 };
 
