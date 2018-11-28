@@ -13,7 +13,7 @@
     "stylelint": "stylelint src/sass/**/*.scss"
   },
   "dependencies": {
-    "coriander": "^1.0.7"
+    "coriander": "^1.0.9"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
