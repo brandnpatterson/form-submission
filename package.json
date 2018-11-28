@@ -12,6 +12,9 @@
     "start": "gulp",
     "stylelint": "stylelint src/sass/**/*.scss"
   },
+  "dependencies": {
+    "coriander": "^1.0.7"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.3",

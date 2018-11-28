@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="image/png" href="public/favicon.ico" sizes="16x16" />
     <link rel="stylesheet" href="public/style.css" />
-    <title>Form Component</title>
+    <title>Coriander</title>
   </head>
   <body>
     <div class="wrapper">
       <form class="container form" method="post" autocomplete="off" name="form">
         <div class="form-content">
-          <h1>Form Component</h1>
+          <h1 class="title">Coriander</h1>
+          <h2 class="subtitle">A simple form validation library 🍂</h2>
           <div class="form-group">
             <label class="form-label" for="name"
               >Name: <span class="required">*</span></label
@@ -21,9 +23,10 @@
               type="text"
               id="name"
               name="name"
+              data-error="Please enter letters only"
               data-placeholder="true"
               data-regex="[a-zA-Z]+(([\',. -][a-zA-Z ])?[a-zA-Z]*)*$"
-              data-error="Please enter letters only"
+              data-required="true"
             />
           </div>
           <div class="form-group">
@@ -35,9 +38,10 @@
               type="text"
               id="email"
               name="email"
+              data-error="Please enter a valid email"
               data-placeholder="true"
               data-regex="^[a-zA-Z0-9]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-              data-error="Please enter a valid email"
+              data-required="true"
             />
           </div>
           <div class="form-group">
@@ -49,8 +53,10 @@
               type="tel"
               id="phone"
               name="phone"
-              data-regex="^[2-9]{2}[0-9]{8}$"
               data-error="Please enter a 10 digit phone number"
+              data-placeholder="true"
+              data-regex="^[2-9]{2}[0-9]{8}$"
+              data-required="true"
             />
           </div>
           <div class="form-group">
@@ -62,84 +68,60 @@
               type="text"
               id="address"
               name="address"
+              data-error="Please enter your address"
               data-placeholder="true"
               data-regex="^(?!\s*$).+"
-              data-error="Please enter your address"
+              data-required="true"
             />
           </div>
           <div class="form-group">
             <p>Do you like 😸?<span class="required">*</span></p>
-            <div class="radio-group">
-              <input
-                type="radio"
-                id="catYes"
-                name="cat"
-                data-error="Please choose an option"
-              />
-              <label class="form-label" for="catYes">Yes</label>
-            </div>
-            <div class="radio-group">
-              <input
-                type="radio"
-                id="catNo"
-                name="cat"
-                data-error="Please choose an option"
-              />
-              <label class="form-label" for="catNo">No</label>
-            </div>
+            <input
+              type="radio"
+              id="catYes"
+              name="cat"
+              data-error="Please choose an option"
+              data-required="true"
+            />
+            <label class="form-label" for="catYes">Yes</label>
+            <input
+              type="radio"
+              id="catNo"
+              name="cat"
+              data-error="Please choose an option"
+            />
+            <label class="form-label" for="catNo">No</label>
           </div>
           <div class="form-group">
             <p>Do you like 🐶?<span class="required">*</span></p>
-            <div class="radio-group">
-              <input
-                type="radio"
-                id="dogYes"
-                name="dog"
-                data-error="Please choose an option"
-              />
-              <label class="form-label" for="dogYes">Yes</label>
-            </div>
-            <div class="radio-group">
-              <input
-                type="radio"
-                id="dogNo"
-                name="dog"
-                data-error="Please choose an option"
-              />
-              <label class="form-label" for="dogNo">No</label>
-            </div>
+            <input
+              type="radio"
+              id="dogYes"
+              name="dog"
+              data-error="Please choose an option"
+              data-required="true"
+            />
+            <label class="form-label" for="dogYes">Yes</label>
+            <input
+              type="radio"
+              id="dogNo"
+              name="dog"
+              data-error="Please choose an option"
+            />
+            <label class="form-label" for="dogNo">No</label>
           </div>
         </div>
         <div class="form-group">
-          <button class="button button-primary" type="submit" name="submit">
-            Submit
-          </button>
+          <button class="button button-primary" type="submit">Submit</button>
         </div>
       </form>
-      <div class="container results">
-        <h2>What do others think?</h2>
-        <button class="button button-success" type="button">
-          Find Out Now
-        </button>
-        <div>
-          <h3>"Do you like 😸?"</h3>
-          <ul id="cat-data"></ul>
-        </div>
-        <div>
-          <h3>"Do you like 🐶?"</h3>
-          <ul id="dog-data"></ul>
-        </div>
-      </div>
       <footer class="container footer">
-        <a href="http://github.com/brandnpatterson" target="_blank">
+        <a href="https://github.com/brandnpatterson" target="_blank">
           &copy; <span class="date"></span> Brandon Patterson. All Rights
           Reserved.
         </a>
       </footer>
     </div>
-    <script type="text/javascript">
-      document.querySelector('.date').append(new Date().getFullYear());
-    </script>
     <script src="public/bundle.js"></script>
   </body>
 </html>
