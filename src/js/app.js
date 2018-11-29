@@ -37,13 +37,13 @@ $buttonRequest.addEventListener('click', () => {
       const catItem = document.createElement('li');
       const dogItem = document.createElement('li');
 
-      catItem.innerHTML = `<li class="item-request">${person.name} said ${
-        person.cat
-      }!</li>`;
+      catItem.innerHTML = `<li class="item-request">${
+        person.name
+      } said ${person.cat.toLowerCase()}!</li>`;
 
-      dogItem.innerHTML = `<li class="item-request">${person.name} said ${
-        person.dog
-      }!</li>`;
+      dogItem.innerHTML = `<li class="item-request">${
+        person.name
+      } said ${person.dog.toLowerCase()}!</li>`;
 
       $catData.appendChild(catItem);
       $dogData.appendChild(dogItem);
