@@ -13,7 +13,8 @@
     "stylelint": "stylelint src/sass/**/*.scss"
   },
   "dependencies": {
-    "coriander": "^1.0.9"
+    "axios": "^0.18.0",
+    "coriander": "^1.1.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -29,7 +30,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylelint": "^7.0.0",
-    "stylelint": "^9.1.1",
+    "stylelint": "^9.9.0",
     "stylelint-config-sass-guidelines": "^5.0.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.26.1",
