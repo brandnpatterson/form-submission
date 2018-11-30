@@ -33,6 +33,9 @@ $buttonRequest.addEventListener('click', () => {
     const $catData = document.querySelector('#cat-data');
     const $dogData = document.querySelector('#dog-data');
 
+    $catData.innerHTML = '';
+    $dogData.innerHTML = '';
+
     req.data.map(person => {
       const catItem = document.createElement('li');
       const dogItem = document.createElement('li');
