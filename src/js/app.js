@@ -40,15 +40,8 @@ $buttonRequest.addEventListener('click', () => {
       const catItem = document.createElement('li');
       const dogItem = document.createElement('li');
 
-      const isOn = prop => (prop === 'on' ? 'yes' : prop.toLowerCase());
-
-      catItem.innerHTML = `<li class="item-request">${person.name} said ${isOn(
-        person.cat
-      )}!</li>`;
-
-      dogItem.innerHTML = `<li class="item-request">${person.name} said ${isOn(
-        person.dog
-      )}!</li>`;
+      catItem.innerHTML = `<li class="item-request">${person.name} said ${person.cat}!</li>`;
+      dogItem.innerHTML = `<li class="item-request">${person.name} said ${person.dog}!</li>`;
 
       $catData.appendChild(catItem);
       $dogData.appendChild(dogItem);
